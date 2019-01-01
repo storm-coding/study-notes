@@ -1,4 +1,4 @@
-##mockito
+##mockito 使用笔记
 
 
 - @mock  创建一个假的对象类型于spring的autowrite，不同的是mock出来的对象都是假的，里面没有任何方法和属性。
