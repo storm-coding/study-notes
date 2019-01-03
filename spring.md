@@ -16,3 +16,19 @@
 解决方案:
 1、pom删除所有的数据源依赖
 2、@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})启动类排除数据源检查
+
+#### feign调用RequestMapping不能被继承
+
+```
+父接口：
+public interface BaseClient {
+    @RequestMapping(value = "/user/save", method = RequestMethod.POST)
+    String query(@RequestBody User user); 
+}
+子接口
+@RequestMapping("/base")
+public interface UserClient extends BaseClient{
+}
+```
+
+这样的情况使用/base/user/save，是失败的
