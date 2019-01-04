@@ -22,13 +22,19 @@
 ```
 父接口：
 public interface BaseClient {
-    @RequestMapping(value = "/user/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     String query(@RequestBody User user); 
 }
 子接口
-@RequestMapping("/base")
+@FeignClient(name = "${service.name}", url="${service.url}")
+@RequestMapping("/user")
 public interface UserClient extends BaseClient{
 }
 ```
-
-这样的情况使用/base/user/save，是失败的
+这样的情况使用/user/save，是失败的
+解决方案：使用 FeignClient的path
+```
+@FeignClient(name = "${service.name}", url="${service.url}", path="/user")
+public interface UserClient extends BaseClient{
+}
+```
