@@ -79,3 +79,21 @@ parseInt,parseFloat 转换中特殊的地方：
 
 - 空字符串NaN
 - 会去掉之前的空串，从第一个非空串，到一个非字符结束，如果是字符则返回NaN 
+
+##### String
+特点：和java中的string类似。都是不可变类型。
+```
+var str = 'str';
+str = str + 'ing';
+```
+这里会先创建一个字符串'str'赋值给str，后面再创建一个'string'再赋值给str。
+**字符串转换**
+有两种方式: 
+1、toString()
+除了null和undefined都有toString方法。object类型是应为object基类中就有这个方法。所以所有派生类也包含。基本类型中是因为在调用toString的时候会转成包装类型。
+2、String()
+构造函数方式转换。规则：
+
+- 除了unll和undefined，调用对象的toString方法 
+- null  返回null
+- undefined 返回undefined
