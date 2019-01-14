@@ -97,3 +97,27 @@ str = str + 'ing';
 - 除了unll和undefined，调用对象的toString方法 
 - null  返回null
 - undefined 返回undefined
+
+##### Object
+一组数据和功能的集合，使用new关键字创建对象
+Object的属性：
+
+- constructor() 构造函数，保存用于创建当前对象的函数
+- hasOwnProperty()  检查给定属性是不是在当前对象实例中
+- isPrototypeOf()   检查传入的对象是不是当前对象的原型
+- propertyIsEnumerable()  检查传入传入的属性能不能使用for in进行枚举
+- toLocaleString()  返回对象的字符串表示，该字符与执行环境地区相对应(比如时间类型)
+- toString() 返回对象的字符串表示
+- valueOf()  返回对象的字符串、数值或布尔值表示
+
+#### 运算符
+##### 布尔操作符
+1、逻辑非, !表示，**可以用于任何js类型**，具体规则：
+
+- 对象      false
+- 空字符串  true
+- 非空字符串 false
+- 数值0  true
+- 数值非0 false
+- null、NaN、undefined true
+和Boolean(),的结果刚好相反
