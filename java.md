@@ -1,5 +1,10 @@
 ## java 笔记
 
+### java语言
+#### 集合
+for、增强for循环遍历中不能删除元素
+解决方案： 使用迭代器删除
+
 ### spring
 #### spring依赖注入 一个接口多个实现
 1. @Autowired + @Qualifier("component1")
