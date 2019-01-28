@@ -5,6 +5,10 @@
 for、增强for循环遍历中不能删除元素
 解决方案： 使用迭代器删除
 
+**collection 转 ArrayList等子类：**
+错误：(List)collection  异常
+正确：使用构造器：new ArrayList(collection)
+
 ### spring
 #### spring依赖注入 一个接口多个实现
 1. @Autowired + @Qualifier("component1")
@@ -42,6 +46,18 @@ public interface UserClient extends BaseClient{
 ```
 @FeignClient(name = "${service.name}", url="${service.url}", path="/user")
 public interface UserClient extends BaseClient{
+}
+```
+
+#### spring aop
+spring对类内部调用的方法调用是aop不起作用
+```
+class A {
+    public void t1() {
+        // 如果对class A进行代理，只有方法t1能被代理，t2不行
+        t2();
+    }
+    public void t2() {}
 }
 ```
 
