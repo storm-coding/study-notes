@@ -49,3 +49,7 @@ public void tearDown() throws Exception {
    testThread.join();
 }
 ```
+
+junit整合测试类：一次运行多个测试类
+@RunWith(Suite.class)  
+@Suite.SuiteClasses({   })
