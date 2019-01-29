@@ -75,5 +75,12 @@ resultMap:
 <result column="u_age" property="age" />
 </resultMap>
 ```
-###插入 返回自增id
+####插入 返回自增id
 sql的xml文件上：useGeneratedKeys="true" keyProperty="id" (java bean 对应的字段)
+
+### dubbo
+dubbo注册当中，url参数指的是不从zk上拉取服务，从指定的url地址直连
+```
+// check 启动时是否对bean进行检查，true：进行检查如果bean未初始化，启动失败
+<dubbo:reference id="xx" url="" interface="com.aa.bb" check="false" />
+```
