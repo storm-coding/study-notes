@@ -19,3 +19,9 @@ git push origin branch-name
 
 #### 切换远程分支到本地
 git checkout -b branch-local origin/branch-remote
+
+#### 更新本地分支
+git checkout -b branch-local origin/branch-remote
+
+#### 本地更新远程分支
+git remote update origin --prune(-p)
