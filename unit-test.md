@@ -18,6 +18,9 @@
       - getValue,获取最后一次传入的参数
       - getAllValue,获取传入的所有参数，list集合  
 
+参数指定是数组类型：any(obj[].class)
+
+mockito @Spy 执行真是的方法，可以使用when().thenReturn()来指定方法的行为
 #### after中结束线程
 
 单元测试一个线程:
