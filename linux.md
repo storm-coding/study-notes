@@ -1,7 +1,7 @@
 ## linux 命令笔记
 linux命令格式： **命令 -选项  参数**
 
-### 1、文件处理
+### 文件处理
 ls：     文件列表
 mkdir：  创建目录
 pwd：    当前目录
@@ -16,3 +16,21 @@ less	可以往上翻页
 head	查看文件前面
 tail	查看文件末尾
 ln 		创建链接
+
+### 权限管理
+chmod 修改文件权限
+ - r 读 cat more...
+ - w 写 vi
+ - x 执行 脚本、命令
+
+chown 更改文件所属者
+chgrp 更改文件所属组
+umask 文件创建默认权限
+
+### 压缩命令
+.gz		  gzip	gunzip(gzip -d) 不能压缩目录，压缩后不保留原目录
+.tar	  tar -cvf -xvf 打包 v显示打包详细信息
+.tar.gz   tar -zcf -zxf
+.zip	  zip  unzip 
+.bz2 	  bzip2 bunzip2
+.tar.bz2  tar -cjf -xjf
