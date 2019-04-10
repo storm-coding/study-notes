@@ -78,6 +78,21 @@ resultMap:
 ####插入 返回自增id
 sql的xml文件上：useGeneratedKeys="true" keyProperty="id" (java bean 对应的字段)
 
+####resultType使用Map接受泛型接受无效
+xml中的sql：
+```
+<select id="findDome" resultType="java.util.HashMap">
+SELECT count(*) as total sum(fail_nums) as fails,from dome
+</select>
+// Dao中接口：
+Map<String,Integer> findDome()
+```
+在接受到map的结果：
+![avatar](./image/mybatis-result_type1.png)
+
+在结果mybatis没有做类型转换的Map中除了Integer还有BigDecimal类型，但是有泛型的情况下，如果其他类型应该报错才对，但是并没有。也就是说这里的泛型并没有起作用。
+泛型之所以没起作用是因为泛型擦除了，在运行时没有泛型的存在，相应接受的Map中就可以接受任何类型
+
 ### dubbo
 dubbo注册当中，url参数指的是不从zk上拉取服务，从指定的url地址直连
 ```
