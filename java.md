@@ -99,3 +99,45 @@ dubbo注册当中，url参数指的是不从zk上拉取服务，从指定的url�
 // check 启动时是否对bean进行检查，true：进行检查如果bean未初始化，启动失败
 <dubbo:reference id="xx" url="" interface="com.aa.bb" check="false" />
 ```
+
+### java Comparator
+在实现comparator时发生异常：
+实现过程：
+```
+Collections.sort(liveServers, (o1, o2) -> {
+    if (o1 == null) {
+        return -1;
+    }
+    if (o2 == null) {
+        return 1;
+    }
+    return o2.compareTo(o1);
+});
+```
+异常信息：
+```
+java.lang.IllegalArgumentException: Comparison method violates its general contract!
+```
+原因：在Jdk1.7之后，实现comparator时需要遵守：自反性、传递性、对称性。即：
+
+- 自反性：x，y 的比较结果和 y，x 的比较结果相反。
+- 传递性：x>y,y>z,则 x>z。
+- 对称性：x=y,则 x,z 比较结果和 y，z 比较结果相同。 
+
+在上面的实现当中，违反了自反性。当o1 == null的时候返回-1，说明o1小于o2。但是当02 == null时，返回1，说明o2小于o1。这显然是不符对称性的。
+
+修改结果：
+```
+Collections.sort(liveServers, (o1, o2) -> {
+    if (o1 == null && o2 == null) {
+        return 0;
+    }
+    if (o1 == null) {
+        return -1;
+    }
+    if (o2 == null) {
+        return 1;
+    }
+    return o2.compareTo(o1);
+});
+```
