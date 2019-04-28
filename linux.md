@@ -34,3 +34,17 @@ umask 文件创建默认权限
 .zip	  zip  unzip 
 .bz2 	  bzip2 bunzip2
 .tar.bz2  tar -cjf -xjf
+
+
+### 网络命令
+write   向指定用户发送信息
+wall    向所有人发送信息(广播)
+ping
+ifconfig
+mail    发送邮件
+last	所有用户的登陆信息
+lastlog 用户最后登陆信息
+traceroute 访问某网站路径
+netstat	查看网络状态
+setup	设置ip
+mount	挂载 设备名 - 文件名
